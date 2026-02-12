@@ -10,14 +10,8 @@ function initApp() {
     initFormListeners();
     initSearchListeners();
 
-    // Load and display ingredients
-    loadAndDisplayIngredients();
-
-    // Add sample data if storage is empty (for demo purposes)
-    const ingredients = loadIngredients();
-    if (ingredients.length === 0) {
-        console.log('No ingredients found. Storage is empty.');
-    }
+    // Start Firestore real-time sync (this will automatically load and display data)
+    initializeFirestoreSync();
 
     console.log('Application initialized successfully!');
 }
