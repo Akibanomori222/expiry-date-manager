@@ -114,7 +114,7 @@ function handleFormSubmit(event) {
         if (success) {
             showNotification('更新しました', 'success');
             closeForm();
-            refreshGanttDisplay();
+            // UI is updated automatically via Firestore real-time listener
         } else {
             showNotification('更新に失敗しました', 'error');
         }
@@ -126,7 +126,7 @@ function handleFormSubmit(event) {
         if (success) {
             showNotification('追加しました', 'success');
             closeForm();
-            refreshGanttDisplay();
+            // UI is updated automatically via Firestore real-time listener
         } else {
             showNotification('追加に失敗しました', 'error');
         }
@@ -198,7 +198,7 @@ function confirmDeleteIngredient(id) {
 
         if (success) {
             showNotification('🎉 美味しくいただきました！', 'success');
-            refreshGanttDisplay();
+            // UI is updated automatically via Firestore real-time listener
         } else {
             showNotification('削除に失敗しました', 'error');
         }
