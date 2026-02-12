@@ -1,0 +1,308 @@
+/* ===== Responsive Design ===== */
+
+/* Tablet (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    .header {
+        padding: var(--spacing-md);
+    }
+
+    .header-title {
+        font-size: 24px;
+    }
+
+    .gantt-header {
+        grid-template-columns: 200px 1fr;
+    }
+
+    .ingredient-row {
+        grid-template-columns: 200px 1fr;
+    }
+}
+
+/* Mobile (< 768px) */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-sm);
+    }
+
+    /* Header */
+    .header {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        padding: var(--spacing-md);
+    }
+
+    .header-title {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    #addIngredientBtn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Controls */
+    .controls {
+        padding: var(--spacing-md);
+    }
+
+    .filters {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .filter-group {
+        min-width: 100%;
+    }
+
+    #clearFiltersBtn {
+        width: 100%;
+    }
+
+    /* Gantt Chart */
+    .gantt-container {
+        height: calc(100vh - 500px);
+        min-height: 400px;
+    }
+
+    .gantt-header {
+        grid-template-columns: 150px 1fr;
+    }
+
+    .ingredient-row {
+        grid-template-columns: 150px 1fr;
+        min-height: 70px;
+    }
+
+    .gantt-label-header {
+        font-size: 14px;
+        padding: var(--spacing-sm);
+    }
+
+    .ingredient-label {
+        padding: var(--spacing-sm);
+    }
+
+    .ingredient-name {
+        font-size: 14px;
+    }
+
+    .ingredient-category {
+        font-size: 12px;
+    }
+
+    .timeline-header {
+        padding: var(--spacing-sm);
+    }
+
+    .timeline-date {
+        min-width: 30px;
+        font-size: 11px;
+    }
+
+    .timeline-bar {
+        height: 28px;
+        font-size: 12px;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        padding: var(--spacing-md);
+    }
+
+    .modal-title {
+        font-size: 20px;
+    }
+
+    .ingredient-form {
+        padding: var(--spacing-md);
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        gap: var(--spacing-sm);
+    }
+
+    .form-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Toast */
+    .toast {
+        left: var(--spacing-sm);
+        right: var(--spacing-sm);
+        bottom: var(--spacing-sm);
+        max-width: none;
+    }
+
+    /* Action Buttons */
+    .ingredient-actions {
+        flex-wrap: wrap;
+    }
+
+    .action-btn {
+        font-size: 11px;
+        padding: 3px 6px;
+    }
+}
+
+/* Small Mobile (< 480px) */
+@media (max-width: 480px) {
+    .header-title {
+        font-size: 20px;
+    }
+
+    .gantt-header {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .ingredient-row {
+        grid-template-columns: 120px 1fr;
+    }
+
+    .ingredient-label {
+        padding: var(--spacing-xs);
+    }
+
+    .ingredient-name {
+        font-size: 13px;
+    }
+
+    .ingredient-category {
+        font-size: 11px;
+    }
+
+    .timeline-bar {
+        height: 24px;
+        font-size: 11px;
+        padding: 0 4px;
+    }
+
+    .timeline-date {
+        min-width: 25px;
+        font-size: 10px;
+    }
+
+    .btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .form-label {
+        font-size: 13px;
+    }
+
+    .form-input,
+    .form-select,
+    .form-textarea {
+        font-size: 14px;
+    }
+}
+
+/* Touch-Friendly Adjustments */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase tap target sizes for touch devices */
+    .btn {
+        min-height: 44px;
+    }
+
+    .action-btn {
+        min-height: 36px;
+        min-width: 36px;
+    }
+
+    .filter-select {
+        min-height: 44px;
+    }
+
+    .form-input,
+    .form-select {
+        min-height: 44px;
+    }
+
+    /* Remove hover effects on touch devices */
+    .ingredient-row:hover {
+        background-color: transparent;
+    }
+
+    .timeline-bar:hover {
+        transform: translateY(-50%);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Landscape Mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .gantt-container {
+        height: calc(100vh - 300px);
+        min-height: 300px;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background-color: white;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .header {
+        box-shadow: none;
+        border-bottom: 2px solid black;
+    }
+
+    #addIngredientBtn,
+    .controls,
+    .ingredient-actions,
+    .toast {
+        display: none !important;
+    }
+
+    .main-content {
+        box-shadow: none;
+    }
+
+    .gantt-container {
+        height: auto;
+        min-height: auto;
+    }
+
+    .gantt-body {
+        overflow: visible;
+    }
+
+    .ingredient-row {
+        page-break-inside: avoid;
+    }
+
+    .modal {
+        display: none !important;
+    }
+}
