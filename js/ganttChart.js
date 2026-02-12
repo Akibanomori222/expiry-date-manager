@@ -219,6 +219,11 @@ function renderGanttChart(ingredients, onEdit, onDelete) {
     const ganttBody = document.getElementById('ganttBody');
     const emptyState = document.getElementById('emptyState');
 
+    // DOM not ready yet, skip rendering
+    if (!timelineHeader || !ganttBody || !emptyState) {
+        return;
+    }
+
     // Clear existing content
     timelineHeader.innerHTML = '';
     ganttBody.innerHTML = '';
@@ -302,9 +307,18 @@ function showLoading() {
  * Refresh the display based on current filters
  */
 function refreshGanttDisplay() {
-    const searchQuery = document.getElementById('searchInput').value;
-    const categoryFilter = document.getElementById('categoryFilter').value;
-    const statusFilter = document.getElementById('statusFilter').value;
+    const searchInput = document.getElementById('searchInput');
+    const categoryFilterEl = document.getElementById('categoryFilter');
+    const statusFilterEl = document.getElementById('statusFilter');
+
+    // DOM not ready yet, skip refresh
+    if (!searchInput || !categoryFilterEl || !statusFilterEl) {
+        return;
+    }
+
+    const searchQuery = searchInput.value;
+    const categoryFilter = categoryFilterEl.value;
+    const statusFilter = statusFilterEl.value;
 
     let ingredients = loadIngredients();
 
