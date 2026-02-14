@@ -30,6 +30,11 @@ function loadIngredients() {
  * Add a new ingredient (async)
  */
 function addIngredient(ingredient) {
+    // Immediately add to local cache for instant UI feedback
+    ingredientsCache.push(ingredient);
+    refreshGanttDisplay();
+
+    // Then save to Firestore
     addIngredientToFirestore(ingredient)
         .then(docId => {
             console.log('Added to Firestore:', docId);
@@ -60,6 +65,11 @@ function updateIngredient(id, updates) {
  * Delete an ingredient by ID (async)
  */
 function deleteIngredient(id) {
+    // Immediately remove from local cache for instant UI feedback
+    ingredientsCache = ingredientsCache.filter(ing => ing.id !== id);
+    refreshGanttDisplay();
+
+    // Then delete from Firestore
     deleteIngredientFromFirestore(id)
         .then(() => {
             console.log('Deleted from Firestore:', id);
