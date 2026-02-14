@@ -55,11 +55,12 @@ async function loadIngredientsFromFirestore() {
  */
 async function addIngredientToFirestore(ingredient) {
     try {
-        // Remove local ID so Firestore generates its own document ID
+        // Use local UUID as Firestore document ID for consistent ID across local and cloud
+        const docId = ingredient.id;
         const { id, ...data } = ingredient;
-        const docRef = await ingredientsCollection.add(data);
-        console.log('Ingredient added with ID:', docRef.id);
-        return docRef.id;
+        await ingredientsCollection.doc(docId).set(data);
+        console.log('Ingredient added with ID:', docId);
+        return docId;
     } catch (error) {
         console.error('Error adding to Firestore:', error);
         throw error;
