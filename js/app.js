@@ -265,6 +265,13 @@ window.exportIngredientsJSON = exportIngredientsJSON;
 window.clearAllData = clearAllData;
 window.logStats = logStats;
 
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registered'))
+        .catch(err => console.log('Service Worker registration failed:', err));
+}
+
 // Log helpful message to console
 console.log('%c賞味期限管理アプリ', 'font-size: 20px; font-weight: bold; color: #3B82F6;');
 console.log('便利なコマンド:');
