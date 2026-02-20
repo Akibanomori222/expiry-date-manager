@@ -119,7 +119,7 @@ function createIngredientRow(ingredient, onEdit, onDelete) {
 
     const editBtn = document.createElement('button');
     editBtn.className = 'action-btn action-btn-edit';
-    editBtn.textContent = '編集';
+    editBtn.textContent = '✏️';
     editBtn.onclick = (e) => {
         e.stopPropagation();
         onEdit(ingredient.id);

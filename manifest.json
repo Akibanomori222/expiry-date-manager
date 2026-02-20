@@ -1,11 +1,11 @@
 {
-    "name": "賞味期限管理アプリ",
-    "short_name": "期限管理",
+    "name": "Freshly - 賞味期限トラッカー",
+    "short_name": "Freshly",
     "description": "賞味期限をガントチャートで管理するアプリ",
     "start_url": "/expiry-date-manager/",
     "display": "standalone",
-    "background_color": "#667EEA",
-    "theme_color": "#667EEA",
+    "background_color": "#FFF8F5",
+    "theme_color": "#FF6B6B",
     "orientation": "any",
     "icons": [
         {

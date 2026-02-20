@@ -209,10 +209,10 @@ function confirmDeleteIngredient(id) {
  * Initialize form event listeners
  */
 function initFormListeners() {
-    // Add button
-    const addBtn = document.getElementById('addIngredientBtn');
-    if (addBtn) {
-        addBtn.addEventListener('click', openAddForm);
+    // FAB button (floating action button)
+    const fabBtn = document.getElementById('fabAddBtn');
+    if (fabBtn) {
+        fabBtn.addEventListener('click', openAddForm);
     }
 
     // Form submit

@@ -9,6 +9,7 @@ function initApp() {
     // Initialize event listeners
     initFormListeners();
     initSearchListeners();
+    initFilterToggle();
 
     // Start Firestore real-time sync (this will automatically load and display data)
     initializeFirestoreSync();
@@ -230,6 +231,29 @@ function clearAllData() {
 }
 
 /**
+ * Initialize filter toggle button
+ */
+function initFilterToggle() {
+    const toggleBtn = document.getElementById('toggleFiltersBtn');
+    const controls = document.getElementById('controlsSection');
+
+    if (toggleBtn && controls) {
+        toggleBtn.addEventListener('click', () => {
+            controls.classList.toggle('collapsed');
+            toggleBtn.classList.toggle('active');
+
+            // Focus search input when opening
+            if (!controls.classList.contains('collapsed')) {
+                setTimeout(() => {
+                    const searchInput = document.getElementById('searchInput');
+                    if (searchInput) searchInput.focus();
+                }, 300);
+            }
+        });
+    }
+}
+
+/**
  * Log application statistics
  */
 function logStats() {
@@ -273,7 +297,7 @@ if ('serviceWorker' in navigator) {
 }
 
 // Log helpful message to console
-console.log('%c賞味期限管理アプリ', 'font-size: 20px; font-weight: bold; color: #3B82F6;');
+console.log('%cFreshly', 'font-size: 20px; font-weight: bold; color: #FF6B6B;');
 console.log('便利なコマンド:');
 console.log('  addSampleIngredients() - サンプルデータを追加');
 console.log('  exportIngredientsJSON() - データをJSON形式でエクスポート');
